@@ -1,6 +1,6 @@
 # Rust Wasm SIMD 128 example
 
-This repo
+This repo is made to showcase how to emit Wasm SIMD 128 instructions from Rust, and use it with [Wasmer](https://github.com/wasmerio/wasmer).
 
 ## Build
 
@@ -14,16 +14,16 @@ rustup toolchain install nightly-2019-05-20
 rustup target add wasm32-wasi --toolchain=nightly-2019-05-20
 
 # Build the instance
-RUSTFLAGS='-C target-feature=+simd128' cargo +nightly-2019-05-20 build --target=wasm32-wasi
+RUSTFLAGS='-C target-feature=+simd128' cargo +nightly-2019-05-20 build --release --target=wasm32-wasi
 
 # Verify that it's working!
-wasm2wat --enable-simd ./target/wasm32-wasi/debug/rust-wasm-simd128-example.wasm
+wasm2wat --enable-simd ./target/wasm32-wasi/release/rust-wasm-simd128-example.wasm
 ```
 
 ## Run it!
 
 ```
-wasmer-release run --backend=llvm ./target/wasm32-wasi/debug/rust-wasm-simd128-example.wasm
+wasmer-release run --backend=llvm ./target/wasm32-wasi/release/rust-wasm-simd128-example.wasm
 
 # TADA!
 ```
