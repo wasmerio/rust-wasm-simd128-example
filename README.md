@@ -7,6 +7,12 @@ This repo is made to showcase how to emit Wasm SIMD 128 instructions from Rust, 
 We build this crate using `nightly-2019-05-20` because we wanted to use a "stable" version of nightly.
 
 ```bash
+# Initialize stdarch
+git submodule update --init
+```
+
+
+```bash
 # Add rust nightly (last versions can't compile 😅)
 rustup toolchain install nightly-2019-05-20
 
